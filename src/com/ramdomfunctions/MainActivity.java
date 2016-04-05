@@ -42,14 +42,14 @@ public class MainActivity extends Activity {
 		drawerList.setOnItemClickListener(new DrawerItemClickListener());
 	}
 
-	private void initButtonList(){
+	private void initButtonList() {
 		drawerButtonTitles = new ArrayList<String>();
 		drawerButtonTitles.add("Activity 1");
-		drawerButtonTitles.add("Activity 2");
+		drawerButtonTitles.add("Palindrom");
 		drawerButtonTitles.add("Activity 3");
-		
+
 	}
-	
+
 	@Override
 	public void setTitle(CharSequence title) {
 		this.title = title;
@@ -66,7 +66,23 @@ public class MainActivity extends Activity {
 
 	// Swaps fragments in the main content view
 	private void selectItem(int position) {
-		Fragment fragment = new DummyFragment();
+		Fragment fragment;
+
+		switch (position) {
+		case 0:
+			fragment = new PalindromFragment();
+			break;
+		case 1:
+			fragment = new PalindromFragment();
+			break;
+		case 2:
+			fragment = new PalindromFragment();
+			break;
+		default:
+			fragment = new PalindromFragment();
+			break;
+
+		}
 
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getFragmentManager();
