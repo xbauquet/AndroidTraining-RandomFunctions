@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 
 	private void initButtonList() {
 		drawerButtonTitles = new ArrayList<String>();
-		drawerButtonTitles.add("Activity 1");
+		drawerButtonTitles.add("Users");
 		drawerButtonTitles.add("Palindrom");
 		drawerButtonTitles.add("Activity 3");
 
