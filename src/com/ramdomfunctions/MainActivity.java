@@ -8,6 +8,7 @@ import com.ramdomfunctions.UserListFragment.ClickListener;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -136,17 +137,17 @@ public class MainActivity extends Activity implements ClickListener {
 	// UserListFragment
 	@Override
 	public void onClick(User user) {
-		// UserDetailFragment detailFragment = (UserDetailFragment)
-		// getFragmentManager()
-		// .findFragmentById(R.id.userDetailFragment);
-		//
-		// if (detailFragment == null || !detailFragment.isInLayout()) {
-		// Intent intent = new Intent(AdminPage.this,
-		// AdminUserDetailPage.class);
-		// intent.putExtra("user", user);
-		// startActivity(intent);
-		// } else {
-		// detailFragment.setUser(user);
-		// }
+		 UserDetailFragment detailFragment = (UserDetailFragment)
+		 getFragmentManager()
+		 .findFragmentById(R.id.userDetailFragment);
+		
+		 if (detailFragment == null || !detailFragment.isInLayout()) {
+		 Intent intent = new Intent(MainActivity.this,
+		 UserDetailActivity.class);
+		 intent.putExtra("user", user);
+		 startActivity(intent);
+		 } else {
+		 detailFragment.setUser(user);
+		 }
 	}
 }
