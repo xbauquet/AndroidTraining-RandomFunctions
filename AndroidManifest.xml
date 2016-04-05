@@ -26,6 +26,14 @@
             android:name=".PalindromFragment"
             android:label="@string/title_activity_palindrom" >
         </activity>
+        <activity
+            android:name=".UserListFragment"
+            android:label="@string/title_activity_user_list_fragment" >
+        </activity>
+        <activity
+            android:name=".UserDetailFragment"
+            android:label="@string/title_activity_user_detail_fragment" >
+        </activity>
     </application>
 
 </manifest>

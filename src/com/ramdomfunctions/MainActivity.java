@@ -3,6 +3,8 @@ package com.ramdomfunctions;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ramdomfunctions.UserListFragment.ClickListener;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -17,12 +19,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements ClickListener {
 
 	private List<String> drawerButtonTitles;
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
-	private CharSequence drawerTitle;
 	private CharSequence title;
 
 	@Override
@@ -32,7 +33,7 @@ public class MainActivity extends Activity {
 
 		initButtonList();
 
-		title = drawerTitle = getTitle();
+		title = getTitle();
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -70,7 +71,9 @@ public class MainActivity extends Activity {
 
 		switch (position) {
 		case 0:
-			fragment = new PalindromFragment();
+			fragment = new UserListFragment();
+			// Declare itself as a listener of the UserListFragment
+			((UserListFragment) fragment).setListener(this);
 			break;
 		case 1:
 			fragment = new PalindromFragment();
@@ -127,5 +130,23 @@ public class MainActivity extends Activity {
 			View rootView = inflater.inflate(R.layout.dummy_fragment, container, false);
 			return rootView;
 		}
+	}
+
+	// Has to be implemented because AdminPage is declared as a listener of the
+	// UserListFragment
+	@Override
+	public void onClick(User user) {
+		// UserDetailFragment detailFragment = (UserDetailFragment)
+		// getFragmentManager()
+		// .findFragmentById(R.id.userDetailFragment);
+		//
+		// if (detailFragment == null || !detailFragment.isInLayout()) {
+		// Intent intent = new Intent(AdminPage.this,
+		// AdminUserDetailPage.class);
+		// intent.putExtra("user", user);
+		// startActivity(intent);
+		// } else {
+		// detailFragment.setUser(user);
+		// }
 	}
 }
