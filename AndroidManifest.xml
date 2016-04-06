@@ -58,6 +58,10 @@
             android:name=".PalindromActivity"
             android:label="@string/title_activity_palindrom" >
         </activity>
+        <activity
+            android:name=".DrawerFragment"
+            android:label="@string/title_activity_drawer_fragment" >
+        </activity>
     </application>
 
 </manifest>

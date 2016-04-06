@@ -11,5 +11,6 @@
     <string name="title_activity_axolotl_fragment">AxolotlFragment</string>
     <string name="title_activity_axolotl">AxolotlActivity</string>
     <string name="title_activity_user_list">UserListActivity</string>
+    <string name="title_activity_drawer_fragment">DrawerFragment</string>
 
 </resources>
