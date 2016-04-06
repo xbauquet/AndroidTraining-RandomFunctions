@@ -18,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends Activity implements ClickListener {
+public class MainActivity extends Activity {
 
 	private List<String> drawerButtonTitles;
 	private DrawerLayout drawerLayout;
@@ -47,7 +47,6 @@ public class MainActivity extends Activity implements ClickListener {
 		drawerButtonTitles.add("Users");
 		drawerButtonTitles.add("Palindrom");
 		drawerButtonTitles.add("Axolotl");
-
 	}
 
 	@Override
@@ -66,27 +65,21 @@ public class MainActivity extends Activity implements ClickListener {
 
 	// Swaps fragments in the main content view
 	private void selectItem(int position) {
-		Fragment fragment = null;
-
+		Intent intent = null;
+		
 		switch (position) {
 		case 0:
-			fragment = new UserListFragment();
-			// Declare itself as a listener of the UserListFragment
-			((UserListFragment) fragment).setListener(this);
-			break;
-		case 1:
-			fragment = new PalindromFragment();
-			break;
-		case 2:
-			Intent intent = new Intent(MainActivity.this, AxolotlActivity.class);
+			intent = new Intent(MainActivity.this, UserListActivity.class);
 			startActivity(intent);
 			break;
-		}
-		if (fragment != null) {
-			// Insert the fragment by replacing any existing fragment
-			FragmentManager fragmentManager = getFragmentManager();
-			fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
-
+		case 1:
+			intent = new Intent(MainActivity.this, PalindromActivity.class);
+			startActivity(intent);
+			break;
+		case 2:
+			intent = new Intent(MainActivity.this, AxolotlActivity.class);
+			startActivity(intent);
+			break;
 		}
 
 		// Highlight the selected item, update the title, and close the drawer
@@ -122,21 +115,5 @@ public class MainActivity extends Activity implements ClickListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	// Has to be implemented because AdminPage is declared as a listener of the
-	// UserListFragment
-	@Override
-	public void onClick(User user) {
-		UserDetailFragment detailFragment = (UserDetailFragment) getFragmentManager()
-				.findFragmentById(R.id.userDetailFragment);
-
-		if (detailFragment == null || !detailFragment.isInLayout()) {
-			Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
-			intent.putExtra("user", user);
-			startActivity(intent);
-		} else {
-			detailFragment.setUser(user);
-		}
 	}
 }

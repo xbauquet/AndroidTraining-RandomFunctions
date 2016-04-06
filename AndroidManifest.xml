@@ -37,10 +37,10 @@
         <activity
             android:name=".UserDetailActivity"
             android:label="@string/title_activity_user_detail"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".UserListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ramdomfunctions.MainActivity" />
+                android:value="com.ramdomfunctions.UserListActivity" />
         </activity>
         <activity
             android:name=".AxolotlFragment"
@@ -49,6 +49,14 @@
         <activity
             android:name=".AxolotlActivity"
             android:label="@string/title_activity_axolotl" >
+        </activity>
+        <activity
+            android:name=".UserListActivity"
+            android:label="@string/title_activity_user_list" >
+        </activity>
+        <activity
+            android:name=".PalindromActivity"
+            android:label="@string/title_activity_palindrom" >
         </activity>
     </application>
 

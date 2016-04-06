@@ -16,7 +16,7 @@ public class PalindromFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.activity_palindrom, container, false);
+		view = inflater.inflate(R.layout.activity_palindrom_fragment, container, false);
 
 		EditText editText = (EditText) view.findViewById(R.id.input);
 
