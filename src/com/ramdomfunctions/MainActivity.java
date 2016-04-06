@@ -11,11 +11,9 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -48,7 +46,7 @@ public class MainActivity extends Activity implements ClickListener {
 		drawerButtonTitles = new ArrayList<String>();
 		drawerButtonTitles.add("Users");
 		drawerButtonTitles.add("Palindrom");
-		drawerButtonTitles.add("Activity 3");
+		drawerButtonTitles.add("Axolotl");
 
 	}
 
@@ -80,13 +78,16 @@ public class MainActivity extends Activity implements ClickListener {
 			fragment = new PalindromFragment();
 			break;
 		case 2:
-			fragment = new PalindromFragment();
+			Intent intent = new Intent(MainActivity.this, AxolotlActivity.class);
+			startActivity(intent);
 			break;
 		}
+		if (fragment != null) {
+			// Insert the fragment by replacing any existing fragment
+			FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
 
-		// Insert the fragment by replacing any existing fragment
-		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
+		}
 
 		// Highlight the selected item, update the title, and close the drawer
 		drawerList.setItemChecked(position, true);
@@ -121,22 +122,6 @@ public class MainActivity extends Activity implements ClickListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	// Dummy Fragment
-	public static class DummyFragment extends Fragment {
-		public static final String ARG_PLANET_NUMBER = "planet_number";
-
-		public DummyFragment() {
-			// Empty constructor required for fragment subclasses
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-			View rootView = inflater.inflate(R.layout.dummy_fragment, container, false);
-			return rootView;
-		}
 	}
 
 	// Has to be implemented because AdminPage is declared as a listener of the

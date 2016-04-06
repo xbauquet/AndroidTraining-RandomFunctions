@@ -36,11 +36,19 @@
         </activity>
         <activity
             android:name=".UserDetailActivity"
-            android:label="@string/title_activity_user_detail" 
+            android:label="@string/title_activity_user_detail"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ramdomfunctions.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AxolotlFragment"
+            android:label="@string/title_activity_axolotl_fragment" >
+        </activity>
+        <activity
+            android:name=".AxolotlActivity"
+            android:label="@string/title_activity_axolotl" >
         </activity>
     </application>
 

@@ -8,5 +8,7 @@
     <string name="title_activity_user_list_fragment">UserListFragment</string>
     <string name="title_activity_user_detail_fragment">UserDetailFragment</string>
     <string name="title_activity_user_detail">UserDetailActivity</string>
+    <string name="title_activity_axolotl_fragment">AxolotlFragment</string>
+    <string name="title_activity_axolotl">AxolotlActivity</string>
 
 </resources>
