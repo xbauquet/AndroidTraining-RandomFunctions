@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements ClickListener {
 
 	// Swaps fragments in the main content view
 	private void selectItem(int position) {
-		Fragment fragment;
+		Fragment fragment = null;
 
 		switch (position) {
 		case 0:
@@ -82,20 +82,26 @@ public class MainActivity extends Activity implements ClickListener {
 		case 2:
 			fragment = new PalindromFragment();
 			break;
-		default:
-			fragment = new PalindromFragment();
-			break;
-
 		}
 
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).addToBackStack(null).commit();
 
 		// Highlight the selected item, update the title, and close the drawer
 		drawerList.setItemChecked(position, true);
 		setTitle(drawerButtonTitles.get(position));
 		drawerLayout.closeDrawer(drawerList);
+	}
+
+	// Used when press back button
+	@Override
+	public void onBackPressed() {
+		if (getFragmentManager().getBackStackEntryCount() > 0) {
+			getFragmentManager().popBackStack();
+		} else {
+			super.onBackPressed();
+		}
 	}
 
 	@Override
@@ -137,17 +143,15 @@ public class MainActivity extends Activity implements ClickListener {
 	// UserListFragment
 	@Override
 	public void onClick(User user) {
-		 UserDetailFragment detailFragment = (UserDetailFragment)
-		 getFragmentManager()
-		 .findFragmentById(R.id.userDetailFragment);
-		
-		 if (detailFragment == null || !detailFragment.isInLayout()) {
-		 Intent intent = new Intent(MainActivity.this,
-		 UserDetailActivity.class);
-		 intent.putExtra("user", user);
-		 startActivity(intent);
-		 } else {
-		 detailFragment.setUser(user);
-		 }
+		UserDetailFragment detailFragment = (UserDetailFragment) getFragmentManager()
+				.findFragmentById(R.id.userDetailFragment);
+
+		if (detailFragment == null || !detailFragment.isInLayout()) {
+			Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+			intent.putExtra("user", user);
+			startActivity(intent);
+		} else {
+			detailFragment.setUser(user);
+		}
 	}
 }
