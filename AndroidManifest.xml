@@ -7,8 +7,10 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="23" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -63,6 +65,10 @@
         <activity
             android:name=".DrawerFragment"
             android:label="@string/title_activity_drawer_fragment" >
+        </activity>
+        <activity
+            android:name=".ContactListActivity"
+            android:label="@string/title_activity_contact_list" >
         </activity>
     </application>
 

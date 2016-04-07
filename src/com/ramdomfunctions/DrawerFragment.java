@@ -31,6 +31,7 @@ public class DrawerFragment extends ListFragment {
 		drawerButtonTitles.add("Users");
 		drawerButtonTitles.add("Palindrom");
 		drawerButtonTitles.add("Axolotl");
+		drawerButtonTitles.add("Contact");
 	}
 
 	@Override
@@ -48,6 +49,10 @@ public class DrawerFragment extends ListFragment {
 			break;
 		case 2:
 			intent = new Intent(getActivity(), AxolotlActivity.class);
+			startActivity(intent);
+			break;
+		case 3:
+			intent = new Intent(getActivity(), ContactListActivity.class);
 			startActivity(intent);
 			break;
 		}
