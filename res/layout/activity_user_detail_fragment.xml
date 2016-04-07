@@ -22,6 +22,13 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+    <Switch
+        android:id="@+id/actif_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/actif_switch" />
+    
     <ImageView
         android:id="@+id/loadedImage"
         android:layout_width="match_parent"
