@@ -86,7 +86,18 @@ public class ContactListActivity extends ListActivity implements LoaderCallbacks
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		// Now create and return a CursorLoader that will take care of
 		// creating a Cursor for the data being displayed.
-		return new CursorLoader(this, ContactsContract.Data.CONTENT_URI, PROJECTION, SELECTION, null, null);
+		return new CursorLoader(this, ContactsContract.Data.CONTENT_URI, PROJECTION, SELECTION, null, null) {
+			@Override
+			public Cursor loadInBackground() {
+				// Slow down the CursorLoader to be able to see the ProgressBar
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				return super.loadInBackground();
+			}
+		};
 	}
 
 	// Called when a previously created loader has finished loading
