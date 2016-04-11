@@ -56,10 +56,18 @@ public class ContactListActivity extends ListActivity implements LoaderCallbacks
 		adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, null, fromColumns, toViews, 0);
 		setListAdapter(adapter);
 
-		// Prepare the loader. Either re-connect with an existing one,
-		// or start a new one.
-		getLoaderManager().initLoader(0, null, this);
+	}
 
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+		if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+			// Prepare the loader. Either re-connect with an existing one,
+			// or start a new one.
+			getLoaderManager().initLoader(0, null, this);
+
+		}
 	}
 
 	@Override
@@ -134,13 +142,17 @@ public class ContactListActivity extends ListActivity implements LoaderCallbacks
 	 *
 	 * @param activity
 	 */
-	public static void verifyPermissions(Activity activity) {
+	public void verifyPermissions(Activity activity) {
 		// Check if we have permission
 		int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_CONTACTS);
 
 		if (permission != PackageManager.PERMISSION_GRANTED) {
 			// We don't have permission so prompt the user
 			ActivityCompat.requestPermissions(activity, PERMISSIONS, REQUEST_PERMISSION);
+		} else {
+			// Prepare the loader. Either re-connect with an existing one,
+			// or start a new one.
+			getLoaderManager().initLoader(0, null, this);
 		}
 	}
 
