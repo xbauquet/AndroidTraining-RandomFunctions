@@ -55,25 +55,7 @@ public class AnimalsContentProvider extends ContentProvider {
 
         // Create a new map of values, where column names are the keys
 
-        ContentValues simba = new ContentValues();
-        simba.put(Animals.COLUMN_NAME_ANIMAL_ID, "1");
-        simba.put(Animals.COLUMN_NAME_NAME, "Simba");
-        simba.put(Animals.COLUMN_NAME_SPECIES, "Lion");
 
-        ContentValues pumba = new ContentValues();
-        pumba.put(Animals.COLUMN_NAME_ANIMAL_ID, "2");
-        pumba.put(Animals.COLUMN_NAME_NAME, "Pumba");
-        pumba.put(Animals.COLUMN_NAME_SPECIES, "Sanglier");
-
-        db.beginTransaction();
-        try {
-            db.insert(Animals.TABLE_NAME, null, simba);
-            db.insert(Animals.TABLE_NAME, null, pumba);
-            db.setTransactionSuccessful();
-        } finally {
-
-            db.endTransaction();
-        }
 
 
 

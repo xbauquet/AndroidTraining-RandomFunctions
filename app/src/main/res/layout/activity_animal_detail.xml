@@ -11,10 +11,12 @@
     tools:context="com.ramdomfunctions.AnimalDetailActivity"
     android:id="@+id/animal_detail_activity">
 
-    <TextView
-        android:id="@+id/animal_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/animal_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/blank" />
+
     <TextView
         android:id="@+id/animal_name"
         android:layout_width="match_parent"
@@ -23,4 +25,5 @@
         android:id="@+id/animal_species"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>
