@@ -3,10 +3,12 @@ package com.ramdomfunctions;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -86,7 +88,10 @@ public class AnimalListActivity extends ListActivity implements LoaderManager.Lo
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        // Do something when a list item is clicked
+        super.onListItemClick(l, v, position, id);
+            Intent intent = new Intent(AnimalListActivity.this, AnimalDetailActivity.class);
+            intent.putExtra("id", id);
+            startActivity(intent);
     }
 
 }
