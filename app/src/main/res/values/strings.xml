@@ -14,5 +14,7 @@
     <string name="title_activity_user_list">UserListActivity</string>
     <string name="title_activity_drawer_fragment">DrawerFragment</string>
     <string name="title_activity_contact_list">ContactListActivity</string>
+    <string name="title_activity_sqlite">AnimalListActivity</string>
+    <string name="title_activity_animal_detail">AnimalDetailActivity</string>
 
 </resources>

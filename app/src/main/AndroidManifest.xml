@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ramdomfunctions"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -12,14 +12,16 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,48 +30,52 @@
         </activity>
         <activity
             android:name=".PalindromFragment"
-            android:label="@string/title_activity_palindrom" >
-        </activity>
+            android:label="@string/title_activity_palindrom" />
         <activity
             android:name=".UserListFragment"
-            android:label="@string/title_activity_user_list_fragment" >
-        </activity>
+            android:label="@string/title_activity_user_list_fragment" />
         <activity
             android:name=".UserDetailFragment"
-            android:label="@string/title_activity_user_detail_fragment" >
-        </activity>
+            android:label="@string/title_activity_user_detail_fragment" />
         <activity
             android:name=".UserDetailActivity"
             android:label="@string/title_activity_user_detail"
-            android:parentActivityName=".UserListActivity" >
+            android:parentActivityName=".UserListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ramdomfunctions.UserListActivity" />
         </activity>
         <activity
             android:name=".AxolotlFragment"
-            android:label="@string/title_activity_axolotl_fragment" >
-        </activity>
+            android:label="@string/title_activity_axolotl_fragment" />
         <activity
             android:name=".AxolotlActivity"
-            android:label="@string/title_activity_axolotl" >
-        </activity>
+            android:label="@string/title_activity_axolotl" />
         <activity
             android:name=".UserListActivity"
-            android:label="@string/title_activity_user_list" >
-        </activity>
+            android:label="@string/title_activity_user_list" />
         <activity
             android:name=".PalindromActivity"
-            android:label="@string/title_activity_palindrom" >
-        </activity>
+            android:label="@string/title_activity_palindrom" />
         <activity
             android:name=".DrawerFragment"
-            android:label="@string/title_activity_drawer_fragment" >
-        </activity>
+            android:label="@string/title_activity_drawer_fragment" />
         <activity
             android:name=".ContactListActivity"
-            android:label="@string/title_activity_contact_list" >
-        </activity>
+            android:label="@string/title_activity_contact_list" />
+        <activity
+            android:name=".AnimalListActivity"
+            android:label="@string/title_activity_sqlite" />
+
+        <provider
+            android:name=".AnimalsContentProvider"
+            android:authorities="com.ramdomfunctions"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".AnimalDetailActivity"
+            android:label="@string/title_activity_animal_detail"></activity>
     </application>
 
 </manifest>
