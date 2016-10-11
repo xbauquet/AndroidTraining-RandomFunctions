@@ -1,0 +1,12 @@
+CREATE TABLE zooUsers (
+  _id LONG NOT NULL PRIMARY KEY AUTOINCREMENT,
+  email STRING NOT NULL,
+  firstName STRING NOT NULL,
+  lastName STRING NOT NULL,
+  pass STRING NOT NULL,
+  authority STRING NOT NULL
+);
+
+select_all:
+SELECT *
+FROM zooUsers;

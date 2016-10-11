@@ -29,10 +29,11 @@ public class DrawerFragment extends ListFragment {
     private void initButtonList() {
         drawerButtonTitles = new ArrayList<String>();
         drawerButtonTitles.add("Users");
-        drawerButtonTitles.add("Palindrom");
+        drawerButtonTitles.add("Palindrome");
         drawerButtonTitles.add("Axolotl");
         drawerButtonTitles.add("Contact");
         drawerButtonTitles.add("Animals");
+        drawerButtonTitles.add("Maps");
     }
 
     @Override
@@ -42,24 +43,23 @@ public class DrawerFragment extends ListFragment {
         switch (position) {
             case 0:
                 intent = new Intent(getActivity(), UserListActivity.class);
-                startActivity(intent);
                 break;
             case 1:
                 intent = new Intent(getActivity(), PalindromActivity.class);
-                startActivity(intent);
                 break;
             case 2:
                 intent = new Intent(getActivity(), AxolotlActivity.class);
-                startActivity(intent);
                 break;
             case 3:
                 intent = new Intent(getActivity(), ContactListActivity.class);
-                startActivity(intent);
                 break;
             case 4:
                 intent = new Intent(getActivity(), AnimalListActivity.class);
-                startActivity(intent);
+                break;
+            case 5:
+                intent = new Intent(getActivity(), MapsActivity.class);
                 break;
         }
+        startActivity(intent);
     }
 }
